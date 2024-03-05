@@ -19,6 +19,11 @@
     color: #fff;
   }
 
+  .pagination a.disabled {
+    color: #e9e3e3;
+    pointer-events: none;
+  }
+
   
   .pagination span {
     display: inline-block;

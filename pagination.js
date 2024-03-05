@@ -10,10 +10,10 @@ $(document).ready(function () {
         $(".pagination").append('<a title="' + i + '" href="#" class="' + (i === currentPage ? 'active' : '') + '">' + i + '</a>');
       }
     } else {
-
+      //Un comment if you want the first or previous not be shown in this condition.
       //if (currentPage > 1) {
         $(".pagination").append('<a title="First" href="#" class="' + (currentPage === 1 ? 'disabled' : '') + '"><<</a>');
-        $(".pagination").append('<a title="Previous" href="#"><</a>');
+        $(".pagination").append('<a title="Previous" href="#" class="' + (currentPage === 1 ? 'disabled' : '') + '"><</a>');
       //}
 
       if (currentPage === 1) {
@@ -41,9 +41,9 @@ $(document).ready(function () {
           $(".pagination").append('<span>...</span>');
         }
       }
-
+       //Un comment if you want the last or next not be shown in this condition.
       //if (currentPage < totalPages) {
-        $(".pagination").append('<a title="Next" href="#">></a>');
+        $(".pagination").append('<a title="Next" href="#" class="' + (currentPage === totalPages ? 'disabled' : '') + '">></a>');
         $(".pagination").append('<a title="Last" href="#" class="' + (currentPage === totalPages ? 'disabled' : '') + '">>></a>');
       //}
 
