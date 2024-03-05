@@ -1,9 +1,20 @@
 $(document).ready(function () {
   var currentPage = 1;
-  var totalPages = 10; // Change this to the total number of pages
+  var totalItems = 49 // Change this to the total number of items
+  var itemsPerPage = parseInt($("#itemsPerPage").val());
+  var totalPages = Math.ceil(totalItems/ itemsPerPage);
+  var selectOptions= [5 , 7 , 10]; //Change this to your desired items per page.
+
+  var selectionContent = [];
+  selectOptions.forEach(option =>{
+    selectionContent.push(`<option value="${option}">${option}</option>`);
+  });
+
+  $("#itemsPerPage").html(selectionContent.join(""));
 
   function updatePagination() {
     $(".pagination").html("");
+    $(".items").html("");
 
     if (totalPages <= 3) {
       for (var i = 1; i <= totalPages; i++) {
@@ -37,6 +48,7 @@ $(document).ready(function () {
         $(".pagination").append('<a title="' + (currentPage - 1) + '" href="#">' + (currentPage - 1) + '</a>');
         $(".pagination").append('<a title="' + currentPage + '" href="#" class="active">' + currentPage + '</a>');
         $(".pagination").append('<a title="' + (currentPage + 1) + '" href="#">' + (currentPage + 1) + '</a>');
+
         if (totalPages > currentPage + 1) {
           $(".pagination").append('<span>...</span>');
         }
@@ -46,8 +58,10 @@ $(document).ready(function () {
         $(".pagination").append('<a title="Next" href="#" class="' + (currentPage === totalPages ? 'disabled' : '') + '">></a>');
         $(".pagination").append('<a title="Last" href="#" class="' + (currentPage === totalPages ? 'disabled' : '') + '">>></a>');
       //}
-
     }
+
+    $(".items").html(`Handle to show items from ${(currentPage-1) * itemsPerPage + 1} to ${currentPage != totalPages? currentPage * (itemsPerPage): totalItems}`);
+
   }
 
   updatePagination();
@@ -68,7 +82,21 @@ $(document).ready(function () {
     } else {
       currentPage = parseInt(title);
     }
+    updatePagination();
+  });
+
+  $("#itemsPerPage").on("change", function (e) {
+          // Updates itemsPerPage based on the selected option
+          itemsPerPage = parseInt($("#itemsPerPage").val());
+
+          // Recalculate totalPages based on the updated itemsPerPage
+          totalPages = Math.ceil(totalItems / itemsPerPage);
+
+          if(itemsPerPage * currentPage> totalItems){
+            currentPage = totalPages;
+          }
 
     updatePagination();
   });
+
 });
