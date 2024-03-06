@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <link rel="stylesheet" href="pagination.css" type="text/css">
 </head>
+
 <body>
 
-  <div class="items"></div>
-  <div class="pagination"></div>
-  <div class="items-selection">
-    <select id="itemsPerPage">
-        <!--<option value="5">5</option>
-        <option value="7">7</option>
-        <option value="10">10</option>-->
-        <!-- Add more options as needed -->
-      </select>
+  <div class="pg-items"></div>
+  <div class="pg-pagination"></div>
+  <div class="pg-items-selection">
+    <span id="pg-results"></span>
+    <select id="pg-select">
+    </select>
+    <span id="pg-pages"></span>
   </div>
-  <div id=" #result"></div>
-  
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="pagination.js"></script>
 </body>
+
 </html>

@@ -1,10 +1,10 @@
-.pagination {
+.pg-pagination {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
-  
-.pagination a {
+
+.pg-pagination a {
     display: inline-block;
     padding: 5px 10px;
     margin: 0 1px;
@@ -12,33 +12,46 @@
     border-radius: 50%;
     text-decoration: none;
     color: #333;
+    /* font-size: smaller; */
 }
 
-.pagination a.active {
+.pg-pagination a.active {
     background-color: #007bff;
     color: #fff;
-    }
+}
 
-.pagination a.disabled {
+.pg-pagination a.disabled {
     color: #e9e3e3;
     pointer-events: none;
 }
 
 
-.pagination span {
+.pg-pagination span {
     display: inline-block;
     padding: 5px 2px;
     margin: 0 1px;
 }
 
-.items {
+.pg-items {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
-.items-selection{
+.pg-items-selection {
     display: flex;
     justify-content: center;
-    margin-top: 5px;
+    margin-top: 10px;
+}
+
+#pg-results {
+    margin: 5px 5px;
+}
+
+#pg-pages {
+    margin: 5px 5px;
+}
+
+#pg-select {
+    border-radius: 7px;
 }
